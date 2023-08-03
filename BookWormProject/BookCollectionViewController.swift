@@ -11,17 +11,35 @@ private let reuseIdentifier = "Cell"
 
 class BookCollectionViewController: UICollectionViewController {
     
+    let searchBar = UISearchBar()
+    
+    
     var movieInfo = MovieInfo() {
         didSet {
             collectionView.reloadData()
         }
     }
+    
+    var searchList: [Movie]! {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
+    
     var color: [UIColor] = [.purple, .systemBrown, .orange, .darkGray, .blue, .systemRed, .systemIndigo, .systemTeal, .systemMint]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "책장"
+        searchBar.delegate = self
+        searchBar.placeholder = "영화를 검색해주세요"
+        searchBar.showsCancelButton = true
+        
+        searchList = movieInfo.movie
+        
+        navigationItem.titleView = searchBar
+        //title = "책장"
         
         let nib = UINib(nibName: BookCollectionViewCell.identifier, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: BookCollectionViewCell.identifier)
@@ -31,20 +49,24 @@ class BookCollectionViewController: UICollectionViewController {
         
     }
     
-    
-    
-    @IBAction func searchBarButtonClicked(_ sender: UIBarButtonItem) {
-        
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: SearchViewController.identifier) as! SearchViewController
-        
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        
-        present(nav, animated: true)
-        
-        
+    override func viewWillAppear(_ animated: Bool) {
+        print(#function)
     }
+    
+    
+//
+//    @IBAction func searchBarButtonClicked(_ sender: UIBarButtonItem) {
+//
+//        let sb = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = sb.instantiateViewController(withIdentifier: SearchViewController.identifier) as! SearchViewController
+//
+//        let nav = UINavigationController(rootViewController: vc)
+//        nav.modalPresentationStyle = .fullScreen
+//
+//        present(nav, animated: true)
+//
+//
+//    }
     
     
     func setCollectionViewLayout() {
@@ -67,7 +89,7 @@ class BookCollectionViewController: UICollectionViewController {
 
    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movieInfo.movie.count
+        return searchList.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -76,7 +98,7 @@ class BookCollectionViewController: UICollectionViewController {
             return BookCollectionViewCell()
         }
         
-        let movie = movieInfo.movie[indexPath.row]
+        let movie = searchList[indexPath.row] //movieInfo.movie[indexPath.row]
         cell.configCell(movie: movie)
         cell.backgroundColor = color[indexPath.row]
         cell.layer.cornerRadius = 20
@@ -108,4 +130,44 @@ class BookCollectionViewController: UICollectionViewController {
 
   
 
+}
+
+
+extension BookCollectionViewController: UISearchBarDelegate {
+    
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        searchList.removeAll()
+        for movie in movieInfo.movie {
+            if movie.title.contains(searchBar.text!) {
+                searchList.append(movie) //영화 객체를 담음
+            }
+        }
+        //collectionView.reloadData()
+        
+    }
+    
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchList = movieInfo.movie
+        
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchList.removeAll()
+        
+        for movie in movieInfo.movie {
+            if movie.title.contains(searchBar.text!) {
+                searchList.append(movie) //영화 객체를 담음
+            }
+        }
+        
+        if searchText.count == 0 {
+            searchList.removeAll()
+            searchList = movieInfo.movie
+        }
+        //collectionView.reloadData()
+    }
+    
 }
