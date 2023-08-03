@@ -25,7 +25,6 @@ class DetailViewController: UIViewController {
     @IBOutlet var memoTitleLabel: UILabel!
     
     
-    var transitionState: String!
     let textViewPlaceholder = "영화에 대한 메모를 입력해보세요!"
     
     override func viewDidLoad() {
@@ -68,11 +67,9 @@ class DetailViewController: UIViewController {
     }
     
     func changeLikeButton(like: Bool){
-        if like {
-            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        } else {
-            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
-        }
+        like ? likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal) : likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        
+        
     }
     
     

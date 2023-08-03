@@ -32,7 +32,6 @@ class BookCollectionViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(#function)
         
         movieCollectionView.delegate = self
         movieCollectionView.dataSource = self
@@ -74,8 +73,8 @@ class BookCollectionViewController: UIViewController{
 
     
     @objc func likeButtonClicked(_ sender: UIButton) {
-        
-        movieInfo.movie[sender.tag].like.toggle()
+        searchList[sender.tag].like.toggle()
+        movieInfo.movie[sender.tag].likeValue.toggle()
         
     }
     
@@ -140,7 +139,6 @@ extension BookCollectionViewController: UISearchBarDelegate {
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchList = movieInfo.movie
-        dismissKeyboard()
         
     }
 
@@ -158,9 +156,6 @@ extension BookCollectionViewController: UISearchBarDelegate {
             searchList = movieInfo.movie
         }
     }
-    
-    func dismissKeyboard() {
-        searchBar.resignFirstResponder()
-    }
+   
     
 }

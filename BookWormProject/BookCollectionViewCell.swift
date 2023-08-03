@@ -31,11 +31,9 @@ class BookCollectionViewCell: UICollectionViewCell {
     }
     
     func changeLikeButtonImage(like: Bool) {
-        if like {
-            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        } else {
-            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
-        }
+        
+        like == true ? likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal) : likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+
     }
     
     
