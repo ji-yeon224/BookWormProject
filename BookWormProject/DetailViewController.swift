@@ -62,7 +62,7 @@ class DetailViewController: UIViewController {
     
     
     @IBAction func likeButtonClicked(_ sender: UIButton) {
-        movieInfo.like.toggle()
+        movieInfo.likeValue.toggle()
         changeLikeButton(like: movieInfo.like)
     }
     

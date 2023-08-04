@@ -55,6 +55,7 @@ class BookCollectionViewController: UIViewController{
         
         
     }
+
     
     func setCollectionViewLayout() {
         
@@ -73,8 +74,15 @@ class BookCollectionViewController: UIViewController{
 
     
     @objc func likeButtonClicked(_ sender: UIButton) {
+        
+        let title = searchList[sender.tag].title
+        for (index, item) in movieInfo.movie.enumerated() {
+            if item.title == title {
+                movieInfo.movie[index].like.toggle()
+            }
+        }
+        
         searchList[sender.tag].like.toggle()
-        movieInfo.movie[sender.tag].likeValue.toggle()
         
     }
     
