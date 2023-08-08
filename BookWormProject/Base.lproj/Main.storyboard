@@ -22,7 +22,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="71" y="-27"/>
+            <point key="canvasLocation" x="-1138" y="109"/>
         </scene>
         <!--Book Collection View Controller-->
         <scene sceneID="4Xf-hH-cvb">
@@ -70,7 +70,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hJ4-2i-gRN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2866.4122137404579" y="-799.29577464788736"/>
+
+            <point key="canvasLocation" x="2190" y="-86"/>
+
         </scene>
         <!--둘러보기-->
         <scene sceneID="HuC-S9-dxc">
@@ -151,7 +153,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jgb-pg-cns" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2060" y="832"/>
+
+
+            <point key="canvasLocation" x="2015" y="832"/>
+
         </scene>
         <!--Table View Controller-->
         <scene sceneID="qgk-NN-L6z">
@@ -305,26 +310,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="검색화면" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Lf-Un-gyj">
-                                <rect key="frame" x="20" y="79" width="353" height="719"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MKa-56-0TI">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CJl-5h-5vA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="9Lf-Un-gyj" firstAttribute="top" secondItem="CJl-5h-5vA" secondAttribute="top" constant="20" id="OEu-md-4Br"/>
-                            <constraint firstItem="9Lf-Un-gyj" firstAttribute="leading" secondItem="CJl-5h-5vA" secondAttribute="leading" constant="20" id="WMN-iU-DsZ"/>
-                            <constraint firstItem="CJl-5h-5vA" firstAttribute="trailing" secondItem="9Lf-Un-gyj" secondAttribute="trailing" constant="20" id="tYi-Cy-TKq"/>
-                            <constraint firstItem="CJl-5h-5vA" firstAttribute="bottom" secondItem="9Lf-Un-gyj" secondAttribute="bottom" constant="20" id="yo8-ek-Fz6"/>
+                            <constraint firstItem="MKa-56-0TI" firstAttribute="top" secondItem="CJl-5h-5vA" secondAttribute="top" id="CAD-XO-1Ae"/>
+                            <constraint firstItem="CJl-5h-5vA" firstAttribute="bottom" secondItem="MKa-56-0TI" secondAttribute="bottom" id="LHc-I9-vKk"/>
+                            <constraint firstItem="CJl-5h-5vA" firstAttribute="trailing" secondItem="MKa-56-0TI" secondAttribute="trailing" id="Tgv-0f-qZR"/>
+                            <constraint firstItem="MKa-56-0TI" firstAttribute="leading" secondItem="CJl-5h-5vA" secondAttribute="leading" id="eFz-hG-Kin"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="MKa-56-0TI" id="Xsb-Gn-5Ww"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65v-WP-mez" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2999" y="-32"/>
+            <point key="canvasLocation" x="3025" y="-32"/>
         </scene>
         <!--Item-->
         <scene sceneID="KUU-5A-JBS">
@@ -379,7 +385,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VGs-20-b7N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-45.038167938931295" y="787.32394366197184"/>
+            <point key="canvasLocation" x="56" y="380"/>
         </scene>
         <!--Item-->
         <scene sceneID="ZDe-jy-5Hp">
