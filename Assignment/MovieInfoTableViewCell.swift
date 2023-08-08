@@ -25,7 +25,7 @@ class MovieInfoTableViewCell: UITableViewCell {
     
     func configurationCell(movie: Movie) {
         titleLabel.text = movie.title
-        infoLabel.text = "\(movie.releaseDate) | \(movie.runtime)"
+        infoLabel.text = "\(movie.releaseDate) | \(movie.runtime)분"
         posterImageView.image = UIImage(named: movie.title)
     }
 

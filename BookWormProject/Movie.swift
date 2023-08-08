@@ -14,4 +14,11 @@ struct Movie {
     let overview: String
     let rate: Double
     var like: Bool = false
+    
+    var likeValue: Bool {
+        get{return like}
+        set {
+            like.toggle()
+        }
+    }
 }
